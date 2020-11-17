@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>slider show</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="container">
+      <div class="images">
+        <img src="1.jpg">
+        <img src="2.jpg">
+        <img src="3.jpg">
+        <img src="4.jpg">
+        <img src="5.jpg">
+      </div>
+      <div class="buttons">
+        <span onclick="button(1)"></span>
+        <span onclick="button(2)"></span>
+        <span onclick="button(3)"></span>
+        <span onclick="button(4)"></span>
+        <span onclick="button(5)"></span>
+      </div>
+      <div class="side left" onclick="side(-1)">
+      <
+        </div>
+      <div class="side right" onclick="side(1)">
+      >
+            </div>
+    </div>
+
+  <script>
+    var index=1;
+    var i;
+    show(index);
+    function button(x){
+      show(index=x);
+    }
+    function side(x){
+      show(index+=x);
+    }
+    function show(x){
+      const img = document.querySelectorAll('img');
+      const slider = document.querySelectorAll('.buttons span');
+      if(x > img.length){
+        index=1
+      }
+      if(x < 1 ){
+        index = img.length;
+      }
+      for(i=0; i< img.length; i++){
+        img[i].style.display = "none";
+      }
+      for(i =0; i< slider.length; i++){
+        slider[i].style.background ="none";
+      }
+      img[index-1].style.display ="block";
+      slider[index-1].style.background ="white";
+    }
+
+
+  </script>
+
+
+  </body>
+</html>
